@@ -91,11 +91,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void qp(int q[],int l,int r)&#123;</span><br><span class="line">	if(l&gt;=r)return ;</span><br><span class="line">	int i=l-1,j=r+1,mid=q[i+j&gt;&gt;1];</span><br><span class="line">	while(i&lt;j)&#123;</span><br><span class="line">		do i++; while(q[i]&lt;mid);</span><br><span class="line">		do j--; while(q[j]&gt;mid);</span><br><span class="line">		if(i&lt;j)swap(q[i],q[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	qp(q,l,j),qp(q,j+1,r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="归并"><a href="#归并" class="headerlink" title="归并"></a>归并</h1><h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void bing(int q[],int l,int mid,int r)&#123;</span><br><span class="line">	int k=0,i=l,j=mid+1;</span><br><span class="line">	while(i&lt;=mid&amp;&amp;j&lt;=r)&#123;</span><br><span class="line">		if(q[i]&lt;=q[j])tmp[k++]=q[i++];</span><br><span class="line">		else tmp[k++]=q[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	while(i&lt;=mid)tmp[k++]=q[i++];</span><br><span class="line">	while(j&lt;=r)tmp[k++]=q[j++];</span><br><span class="line">	for(i=l,j=0;i&lt;=r;i++,j++)q[i]=tmp[j];</span><br><span class="line">&#125;</span><br><span class="line">void gui(int q[],int l,int r)&#123;</span><br><span class="line">	if(l&lt;r)&#123;</span><br><span class="line">		int mid=l+r&gt;&gt;1;</span><br><span class="line">		gui(q,l,mid);</span><br><span class="line">		gui(q,mid+1,r);</span><br><span class="line">		bing(q,l,mid,r);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shen132701.github.io/2024/08/08/suanfa/" data-id="clzkxtyyy0001tcno4czdah1b" data-title="suanfa" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://shen132701.github.io/2024/08/08/suanfa/" data-id="clzkxvesl0001x0nog86g5bfk" data-title="suanfa" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -146,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shen132701.github.io/2024/08/08/hello-world/" data-id="clzkxtyyu0000tcno9y71dmqb" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://shen132701.github.io/2024/08/08/hello-world/" data-id="clzkxvesg0000x0no2emf3whf" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
