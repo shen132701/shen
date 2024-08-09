@@ -6,15 +6,21 @@
   
   <title>linuxhexogithub | NB blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="如何在linux环境下用hexo建立博客并传到github上第一步：安装必要软件我们需要npm,hexo,nodejs,git这四个软件 1sudo apt install npm nodejs git  下载完后，输入这几个来验证 123npm -v nodejs -vgit -v  然后安装hexo 1sudo npm install -g hexo-cli  检查一下 1hexo -v  初">
+<meta property="og:type" content="article">
 <meta property="og:title" content="linuxhexogithub">
 <meta property="og:url" content="https://shen132701.github.io/2024/08/08/linux-hexo-github/index.html">
 <meta property="og:site_name" content="NB blog">
+<meta property="og:description" content="如何在linux环境下用hexo建立博客并传到github上第一步：安装必要软件我们需要npm,hexo,nodejs,git这四个软件 1sudo apt install npm nodejs git  下载完后，输入这几个来验证 123npm -v nodejs -vgit -v  然后安装hexo 1sudo npm install -g hexo-cli  检查一下 1hexo -v  初">
 <meta property="og:locale">
+<meta property="og:image" content="https://shen132701.github.io/home/szx/picture/setting.png">
+<meta property="og:image" content="https://shen132701.github.io/home/szx/picture/sshkey.png">
+<meta property="og:image" content="https://shen132701.github.io/home/szx/picture/ssh.png">
 <meta property="article:published_time" content="2024-08-08T07:21:27.000Z">
-<meta property="article:modified_time" content="2024-08-08T07:21:27.291Z">
+<meta property="article:modified_time" content="2024-08-09T06:45:33.583Z">
 <meta property="article:author" content="szx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shen132701.github.io/home/szx/picture/setting.png">
   
     <link rel="alternate" href="/atom.xml" title="NB blog" type="application/atom+xml">
   
@@ -91,11 +97,58 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="如何在linux环境下用hexo建立博客并传到github上"><a href="#如何在linux环境下用hexo建立博客并传到github上" class="headerlink" title="如何在linux环境下用hexo建立博客并传到github上"></a>如何在linux环境下用hexo建立博客并传到github上</h1><h2 id="第一步：安装必要软件"><a href="#第一步：安装必要软件" class="headerlink" title="第一步：安装必要软件"></a>第一步：安装必要软件</h2><p>我们需要npm,hexo,nodejs,git这四个软件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm nodejs git</span><br></pre></td></tr></table></figure>
+
+<p>下载完后，输入这几个来验证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm -v </span><br><span class="line">nodejs -v</span><br><span class="line">git -v</span><br></pre></td></tr></table></figure>
+
+<p>然后安装hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>检查一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化博客文件夹"><a href="#初始化博客文件夹" class="headerlink" title="初始化博客文件夹"></a>初始化博客文件夹</h2><p>创建并进入blog文件夹，然后执行以下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &amp;&amp; npm install &amp;&amp;git init</span><br></pre></td></tr></table></figure>
+
+<p>注：过程较久，耐心等待</p>
+<h2 id="定义git数据"><a href="#定义git数据" class="headerlink" title="定义git数据"></a>定义git数据</h2><p>设置github账户信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &lt;用户名&gt;</span><br><span class="line">git config --global user.email &lt;邮箱地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>生成ssh密钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh-keygen -t rsa -C &lt;邮箱&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一个输入 &#x2F;root&#x2F;.ssh&#x2F;id_rsa,然后按3个回车</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /root/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>这时如果出现以邮箱结尾的一长串乱码就成功了</p>
+<p>复制所有内容，在github右侧头像中打开setting的ssh and GPGkeys</p>
+<p><img src="/home/szx/picture/setting.png" alt="这是图片" title="setting"></p>
+<p><img src="/home/szx/picture/sshkey.png" alt="ssh" title="sshkey"></p>
+<p>添加一个sshkey，标题随意</p>
+<h2 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h2><p>去隧道的code界面复制ssh地址</p>
+<p><img src="/home/szx/picture/ssh.png" alt="ssh" title="ssh"></p>
+<p>在blog文件夹中打开_config.yml编辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: &lt;blog标题&gt;</span><br><span class="line">subtitle: &lt;副标题&gt;(可无)</span><br><span class="line">description: &#x27;&#x27;</span><br><span class="line">keywords:</span><br><span class="line">author: </span><br><span class="line">language: zh(中文)</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://&lt;隧道名称&gt;</span><br></pre></td></tr></table></figure>
+
+<p>划到最底</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;粘贴&gt;</span><br><span class="line">  branch: &lt;主分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>保存退出</p>
+<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>输入以下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo hexo clean&amp;&amp;sudo hexo g&amp;&amp;sudo hexo d</span><br></pre></td></tr></table></figure>
+
+<p>上传完成后，到<code>https://&lt;用户名&gt;.github.io</code> 就可以看到自己的博客力！</p>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>新增博客页：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo hexo new pages &lt;名称&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在  ~&#x2F;blog&#x2F;source&#x2F;_posts中可以找到并编辑</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shen132701.github.io/2024/08/08/linux-hexo-github/" data-id="clzkz0ty40000hsno8ur36elv" data-title="linuxhexogithub" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://shen132701.github.io/2024/08/08/linux-hexo-github/" data-id="clzmcf8cx00004uno0kfg4nmh" data-title="linuxhexogithub" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
